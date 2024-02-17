@@ -20,7 +20,7 @@ class Card:
     def get_offset_length(self):
         return len(self.get_id_tag()) + 1
 
-    def __str__(self):
+    def __str__(self) -> str:
         if self.anki_id:
-            return self.anki_id
-        print(self.front[:32])
+            return str(self.anki_id)
+        return self.front[:32]

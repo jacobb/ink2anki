@@ -9,12 +9,25 @@
 
 -e file:.
 anyio==4.2.0
+    # via httpx
 attrs==23.2.0
+    # via anki
 certifi==2024.2.2
+    # via httpcore
+    # via httpx
 h11==0.14.0
+    # via httpcore
 httpcore==1.0.3
+    # via httpx
 httpx==0.26.0
+    # via anki
 idna==3.6
+    # via anyio
+    # via httpx
 markdown==3.5.2
+    # via anki
 pygments==2.17.2
+    # via anki
 sniffio==1.3.0
+    # via anyio
+    # via httpx
