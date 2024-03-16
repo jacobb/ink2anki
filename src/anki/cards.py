@@ -57,15 +57,17 @@ def get_or_create_card_from_match(match: re.Match) -> Card:
         return card
 
     card.in_markdown = False
+    print(card.front, card.back)
     resp = make_card_request(card.front, card.back)
     if resp["error"]:
-        raise ValueError(f"Something Broke {resp}")
+        raise ValueError(f"Something Broke {card.back}, {resp}")
     card.anki_id = resp["result"]
     return card
 
 
 def insert_card_into_md(markdown, card, offset=0):
-    insert_position = card.end + offset
+    # -1 accounts for an extra matched newline
+    insert_position = card.end + offset - 1
     # Modify the full_markdown string to insert the new text
     markdown = (
         markdown[:insert_position]

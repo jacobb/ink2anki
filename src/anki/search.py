@@ -10,7 +10,7 @@ def parse_file(file_path: Union[str, Path]):
     with p.open() as f:
         full_markdown = f.read()
 
-    pattern = r"^Q: (.+?)\nA: (.+?)(?:\n<!--ID: (\d+)-->)?(?=(\n\n|$))"
+    pattern = r"^Q: (.+?)\nA: (.+?)\n(?:<!--ID: (\d+)-->)?(?=\n\n|$)"
     matches = re.finditer(pattern, full_markdown, re.MULTILINE | re.DOTALL)
     offset = 0
     for match in matches:
